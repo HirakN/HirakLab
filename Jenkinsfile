@@ -110,7 +110,7 @@ node('ALMS') {
     } catch (e) {
         def buildStatus = "Failed"
         if (isPublishingBranch()) {
-            buildStatus = "MasterFailed"
+            buildStatus = "MasterFailed" : currentBuild.result
         }
         notifySlack("", slackNotificationChannel, [
             [
